@@ -1,0 +1,8 @@
+query GetCategoryById($categoryId: Long!) {
+    getCategoryById(categoryId: $categoryId) {
+        id
+        name
+        description
+        image
+    }
+}

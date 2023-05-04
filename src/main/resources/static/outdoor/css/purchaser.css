@@ -1,0 +1,15 @@
+.assets_detail_dark_overlay_img {
+    background-image: url("/defense/images/category_dark_overlay.svg");
+}
+
+#assets_title {
+    color: #33424D;
+}
+
+#advertisement_title {
+    color: #333;
+}
+
+.advertisement_content_text {
+    color: #2F2F16
+}

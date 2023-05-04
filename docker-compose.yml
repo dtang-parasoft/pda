@@ -1,0 +1,93 @@
+version: "3.9"
+
+services:
+  demo-app:
+    image: parasoft/demo-app:${PDA_IMAGE_TAG:-latest}
+    ports:
+      - "8080:8080"
+      - "9001:9001"
+      - "50051:50051"
+      - "61623:61623"
+      - "61624:61624"
+      - "61626:61626"
+    working_dir: /usr/local/tomcat/data
+    volumes:
+      - "demo-app_data:/usr/local/tomcat/data"
+      # Uncomment if JDBC proxy is needed. Create a lib folder under current directory and copy <VIRTUALIZE_INSTALL_DIR>/proxies/ParasoftJDBCDriver.jar into it
+      # - "./lib/ParasoftJDBCDriver.jar:/usr/local/tomcat/webapps/ROOT/WEB-INF/lib/ParasoftJDBCDriver.jar:ro"
+      # Uncomment if application.properties needs to be customized. Create a config folder and put customized application.properties file in it.
+      # - "./config/application.properties:/usr/local/tomcat/data/config/application.properties:ro"
+    environment:
+      JAVA_OPTS: >-
+        -Dspring.kafka.bootstrap-servers=kafka:9092
+        -Dspring.rabbitmq.host=rabbitmq -Dspring.rabbitmq.username=admin -Dspring.rabbitmq.password=admin
+        -Dspring.security.oauth2.client.provider.keycloak.realm-uri=http://${EXTERNAL_HOSTNAME:-host.docker.internal}:${KEYCLOAK_HOST_PORT:-8081}/realms/demo-app-realm
+  kafka:
+    # https://github.com/bitnami/containers/blob/d559d7c399eec5f0249806fe03981291df013af6/bitnami/kafka/README.md
+    image: bitnami/kafka:3.3
+    ports:
+      - "9093:9093"
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=INTERNAL://:9092,EXTERNAL://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=INTERNAL://kafka:9092,EXTERNAL://${EXTERNAL_HOSTNAME:-localhost}:9093
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=INTERNAL
+    depends_on:
+      - zookeeper
+    profiles:
+      - kafka
+  zookeeper:
+    # https://github.com/bitnami/containers/blob/3edc7deb87b51ab5fee0368fa8dd79c7bb67c3fc/bitnami/zookeeper/README.md
+    image: bitnami/zookeeper:3.8
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    profiles:
+      - kafka
+  rabbitmq:
+    # https://github.com/docker-library/docs/blob/6d68909222c1e30ba842263047eb5ddabb77ae04/rabbitmq/README.md
+    image: rabbitmq:3.11-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - "rabbitmq_data:/var/lib/rabbitmq"
+    hostname: demo-app-rabbit
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    profiles:
+      - rabbitmq
+  keycloak:
+    # https://github.com/keycloak/keycloak/blob/447364076adb84b62d0d5db38502a02774b0254d/docs/guides/src/main/server/containers.adoc
+    image: quay.io/keycloak/keycloak:20.0.3
+    ports:
+      - "${KEYCLOAK_HOST_PORT:-8081}:8080"
+    volumes:
+      - "keycloak_data:/opt/keycloak/data"
+      - "./keycloak:/opt/keycloak/data/import:ro"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    command: [ "start-dev", "--import-realm" ]
+    profiles:
+      - keycloak
+
+volumes:
+  demo-app_data:
+    driver: local
+  kafka_data:
+    driver: local
+  zookeeper_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+  keycloak_data:
+    driver: local

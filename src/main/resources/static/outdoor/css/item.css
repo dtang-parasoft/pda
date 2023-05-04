@@ -1,0 +1,68 @@
+body {
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.industry_font {
+    font-family: 'NewYorkExtraLarge-Heavy', 'New York Extra Large Heavy', 'New York Extra Large', 'Arial', sans-serif;
+}
+
+.item_navigation_bar>li+li:before {
+    color: #2F2F16;
+}
+
+.item_navigation_bar .unClickable_color1 {
+    color: #2F2F16;
+}
+
+#item_title {
+    font-weight: 700;
+}
+
+.detail_dark_overlay_img {
+    width: 654px;
+    height: 368px;
+    position: absolute;
+    background-image: url("/defense/images/detail_dark_overlay.svg");
+    background-size: 100% 100%;
+}
+    
+#item_img_dark_overlay {
+    z-index: 5;
+}
+
+.requisition_button {
+    background-color: rgba(251, 243, 227, 1);
+    border-color: rgba(121, 73, 0, 1);
+    border-radius: 6px;
+    font-family: 'NewYorkExtraLarge-Heavy', 'New York Extra Large Heavy', 'New York Extra Large', sans-serif;
+    color: #4F3000;
+}
+
+.requisition_button:hover {
+    background-color: rgba(238, 208, 162, 1);
+}
+
+#item_number_input {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(47, 47, 22, 1);
+    color: #20200A;
+}
+
+#item_add_to_cart_button button {
+    background-color: rgba(255, 153, 0, 1);
+    color: #4F3000;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+#item_add_to_cart_button button:hover {
+    background-color: rgba(249, 181, 78, 1);
+}
+
+#item_description {
+    font-family: 'NewYorkExtraLarge-Regular', 'New York Extra Large', sans-serif;
+}
+
+.sp-3balls, .sp-3balls:before, .sp-3balls:after {
+    background-color: #000;
+}

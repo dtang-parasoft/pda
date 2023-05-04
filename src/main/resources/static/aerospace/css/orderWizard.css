@@ -1,0 +1,59 @@
+.order_wizard_wrapper, .breadcrumb>.active {
+    color: #C2EAFB;
+}
+
+#order_title {
+    font-weight: 800;
+}
+
+.breadcrumb>.non-active, .breadcrumb>li+li:before {
+    color: #c2eafb7a;
+}
+
+#region {
+    left: 32px;
+}
+
+.deploy_input, #platoon_id_input, #service_number_input{
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(182, 221, 238, 1);
+    border-radius: 20px;
+    box-shadow: none;
+    font-weight: 700;
+    font-style: normal;
+    color: #20200A;
+}
+
+#map>img {
+    border: 2px solid #b6ddee;
+    border-radius: 14px;
+}
+
+#get_location>button {
+    background-color: rgba(122, 141, 149, 1);
+    color: #B6DDEE;
+}
+
+#assign_to_campaign, #assign_to_campaign>button, #submit_for_approval, #submit_for_approval>button, .orderInfoContentFormat1 {
+    font-weight: 700;
+}
+
+.summary_content1, .summary_content2, .summary_content3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#summary_map>img {
+    border: 2px solid #b6ddee;
+    border-radius: 14px;
+}
+
+.item_title, .item_title>div>span {
+    width: 255px;
+}
+.font_color1 {
+    color: #E7FFA1;
+}

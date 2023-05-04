@@ -1,0 +1,211 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.12.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+	id 'war'
+	id 'com.google.protobuf' version '0.8.18'
+}
+
+group = 'com.parasoft.demoapp'
+version = '1.1.0'
+sourceCompatibility = '1.8'
+
+def buildMetadata = ''
+if (project.hasProperty("jenkinsBuildNumber")) {
+	buildMetadata += new Date().format('yyyyMMdd') + 'B' + jenkinsBuildNumber
+} else {
+	buildMetadata += new Date().format('yyyyMMddHHmmss')
+}
+if (project.hasProperty("gitCommitHash")) {
+	buildMetadata += '.' + gitCommitHash
+}
+
+bootRun {
+	if (project.hasProperty("port")) {
+		args += ["--server.port=${project.port}"]
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+def grpcVersion = '1.49.0' // GRPC_VERSION
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-activemq'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'com.graphql-java:graphql-java:19.2'
+	implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.hsqldb:hsqldb'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-test:14.0.0'
+	testImplementation 'com.graphql-java-kickstart:graphql-java-kickstart:14.0.0'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+
+        // To support higher version of keycloak
+        implementation 'com.nimbusds:oauth2-oidc-sdk:9.4'
+
+	implementation 'org.apache.activemq:activemq-stomp'
+	// Exclude `jetty-all` dependency, but keep other necessary jetty dependencies.
+	// See the following URLs for details:
+	// https://stackoverflow.com/questions/59286348/spring-boot-2-2-activemq-jetty-conflict
+	// https://issues.apache.org/jira/browse/AMQ-7364
+	implementation 'org.springframework.boot:spring-boot-starter-jetty'
+	implementation ('org.apache.activemq:activemq-http') {
+		exclude group: "org.eclipse.jetty.aggregate", module:"jetty-all"
+	}
+	implementation 'org.springframework.kafka:spring-kafka:2.9.1'
+	implementation 'org.apache.activemq:activemq-spring'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'com.google.code.gson:gson'
+
+	implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.6.13'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
+	implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.13'
+
+    //gRPC
+    implementation 'net.devh:grpc-spring-boot-starter:2.13.1.RELEASE'
+	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+	implementation "io.grpc:grpc-stub:${grpcVersion}"
+
+	developmentOnly fileTree(dir:'lib',includes:['*jar'])
+	testRuntimeOnly fileTree(dir:'lib',includes:['*jar'])
+
+	// Jtest
+	testImplementation 'org.apiguardian:apiguardian-api:1.1.0'
+	testImplementation 'org.javassist:javassist:3.24.0-GA'
+	testImplementation 'net.bytebuddy:byte-buddy:1.10.0'
+	testImplementation 'net.bytebuddy:byte-buddy-agent:1.10.0'
+	testImplementation 'org.hamcrest:hamcrest:2.1'
+
+	testImplementation 'org.objenesis:objenesis:3.0.1'
+	testImplementation 'junit:junit:4.13'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+	testImplementation 'org.junit.jupiter:junit-jupiter-migrationsupport:5.5.1'
+	testImplementation 'org.junit.jupiter:junit-jupiter-params:5.5.1'
+
+	testImplementation 'org.junit.platform:junit-platform-commons:1.5.1'
+	testImplementation 'org.junit.platform:junit-platform-engine:1.5.1'
+	testImplementation 'org.junit.platform:junit-platform-launcher:1.5.1'
+	testImplementation 'org.junit.platform:junit-platform-runner:1.5.1'
+	testImplementation 'org.junit.platform:junit-platform-suite-api:1.5.1'
+	testImplementation 'org.junit.vintage:junit-vintage-engine:5.5.1'
+	testImplementation 'pl.pragmatists:JUnitParams:1.1.1'
+	testImplementation 'org.mockito:mockito-core:2.28.2'
+	testImplementation 'org.mockito:mockito-junit-jupiter:2.28.2'
+
+	testImplementation 'org.powermock:powermock-api-support:2.0.2'
+	testImplementation 'org.powermock:powermock-core:2.0.2'
+	testImplementation 'org.powermock:powermock-api-mockito2:2.0.2'
+	testImplementation 'org.powermock:powermock-module-junit4:2.0.2'
+	testImplementation 'org.powermock:powermock-module-junit4-common:2.0.2'
+	testImplementation 'org.powermock:powermock-reflect:2.0.2'
+
+	testImplementation 'org.springframework.kafka:spring-kafka-test:2.9.1'
+	testImplementation 'org.apache.kafka:kafka-clients:3.2.3:test'
+	testImplementation 'org.apache.kafka:kafka_2.13:3.2.3:test'
+
+    testImplementation 'org.springframework.amqp:spring-rabbit-test:'
+
+    testImplementation "io.grpc:grpc-testing:${grpcVersion}"
+}
+
+test {
+	useJUnitPlatform()
+}
+
+ext {
+	set('spring-framework.version', "5.2.22.RELEASE")
+	set('log4j2.version', '2.17.1')
+	set('springCloudVersion', "Hoxton.SR12")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+// Generate META-INF/build-info.properties for build information.
+springBoot {
+	buildInfo {
+		// Workaround for failing to inject BuildProperties when started with
+		// SpringBootApplication main method or STS Boot Dashboard.
+		//
+		// How-to:
+		// When PDA failed to start in the IDE with the following description:
+		// Field buildProperties in com.parasoft.demoapp.service.BuildInfoService required a bean of type
+		// 'org.springframework.boot.info.BuildProperties' that could not be found.
+		//
+		// Steps required:
+		// 1. Run bootBuildInfo Gradle task in the Gradle Tasks build group.
+		// 2. Refresh the project.(Right click on the project, Refresh in STS.)
+		// 3. Start PDA.
+		destinationDir = file('src/main/resources/META-INF')
+		properties {
+			additional = [
+					'id': buildMetadata
+			]
+		}
+	}
+}
+
+bootWar {
+	manifest {
+		attributes(
+				'Main-Class': 'org.springframework.boot.loader.PropertiesLauncher',
+				'Loader-Path': 'WEB-INF/lib-provided,WEB-INF/lib,WEB-INF/classes,file:lib/'
+		)
+	}
+}
+
+sourceSets{
+    src {
+        main {
+            java {
+                srcDir 'build/generated/source/proto/main/grpc'
+                srcDir 'build/generated/source/proto/main/java'
+            }
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.14.0"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.49.0'
+        }
+    }
+    generateProtoTasks {
+		all().each { task ->
+			task.plugins {
+				grpc {}
+			}
+		}
+    }
+}

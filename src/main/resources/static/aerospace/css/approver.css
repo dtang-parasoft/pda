@@ -1,0 +1,216 @@
+body {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.industry_font {
+    font-family: 'Courier-Bold', 'Courier Bold', 'Courier', sans-serif;
+}
+
+#header-container {
+    background: linear-gradient(180deg, rgba(77, 91, 69, 1) 2%, rgba(36, 42, 33, 1) 53%);
+    -moz-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.349019607843137);
+    -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.349019607843137);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.349019607843137);
+}
+
+.header-title a {
+    font-family: 'Ubuntu-Regular', 'Ubuntu', sans-serif;
+    font-size: 18px;
+    color: #A6D58A;
+    font-weight: 400;
+}
+
+.role-title {
+    font-family: 'Ubuntu-Regular', 'Ubuntu', sans-serif;
+    color: #A6D58A;
+}
+
+#username-button .dropdown-menu {
+    background: linear-gradient(180deg, rgba(77, 91, 69, 1) 2%, rgba(36, 42, 33, 1) 53%);
+}
+
+#username-button .dropdown-menu>li>a {
+    color: #51A41D;
+}
+
+.content-title {
+    font-size: 36px;
+    color: #51A41D;
+}
+
+.order_title {
+    background: linear-gradient(180deg, #51A41D -85%, rgb(22 22 22) 53%);
+    color: #51A41D;
+}
+
+.order_content {
+    color: #51A41D;
+}
+
+.submission_date {
+    width: 143px;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>thead>tr>th {
+    border: 1px solid #264d0e;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #1b2f0f;
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #000000;
+}
+
+.new-status-label {
+    color: #51A41D;
+}
+
+#map>img {
+    border: 2px solid #51a41d;
+}
+
+
+#page_number {
+    color: #51A41D;
+}
+
+.buildInfo>li {
+    color: #51A41D;
+}
+
+.approver_order_detail_box_img {
+    background-image: url(/aerospace/images/approver_order_detail_box.svg);
+}
+
+.dialog-title {
+    color: #51A41D;
+}
+
+.requested_assets {
+    font-size: 16px;
+    color: #51A41D;
+    font-weight: 700;
+}
+
+#order_items {
+    color: #51A41D;
+}
+
+#order_detail_map>img {
+    border: 1px solid #51a41d;
+}
+
+#order_detail_region {
+    font-size: 16px;
+    color: #51A41D;
+    font-weight: 700;
+}
+
+#order_detail_assigned_campaign {
+    color: #51A41D;
+    font-weight: 700;
+}
+
+.order_detail_summary_title_and_content {
+    color: #51A41D;
+}
+
+#cancel_btn {
+    width: 102px;
+    height: 34px;
+    background-color: rgba(41, 72, 22, 1);
+    border-width: 2px;
+    border-color: rgba(199, 242, 173, 1);
+    font-family: 'Courier', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #C7F2AD;
+}
+
+#save_btn {
+    width: 264px;
+    height: 34px;
+    background-color: rgba(19, 99, 157, 1);
+    color: #D3ECFD;
+    border-width: 2px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: rgba(211, 236, 253, 1);
+    font-family: 'Courier', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*Define the scroll-bar style*/
+#order_items::-webkit-scrollbar {
+    background: #1b2f0f;
+}
+
+/*Define the scroll-bar's track style*/
+#order_items::-webkit-scrollbar-track {
+    background: #1b2f0f;
+}
+
+/*Define the scroll-bar's slider style*/
+#order_items::-webkit-scrollbar-thumb {
+    background-color: #51A41D;
+}
+
+.order_item_description {
+    color: #3F6E22;
+}
+
+.item_img, .item_img>img {
+    width: 70px;
+    height: 40px;
+}
+
+#close-btn {
+    color: #E7FFA1;
+}
+
+#response_title {
+    font-size: 16px;
+    color: #51A41D;
+    font-weight: 700;
+}
+
+#response_select {
+    width: 312px;
+    border: 1px solid rgba(81, 164, 29, 1);
+    color: #51A41D;
+    background-color: rgba(43, 74, 24, 1);
+    box-sizing: border-box;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#comments_title {
+    color: #51A41D;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+#comments_content {
+    height: 60px;
+    color: #51A41D;
+    background-color: rgba(43, 74, 24, 1);
+    text-transform: none;
+    letter-spacing: normal;
+    box-sizing: border-box;
+    border: 1px solid rgba(81, 164, 29, 1);
+}
+
+.glyphicon-cog {
+    color: #A6D58A;
+}
+
+.operated_order_APPROVED {
+    color: #51A41D;
+}
+
+.operated_order.reject_reason {
+    color: #51A41D;
+}

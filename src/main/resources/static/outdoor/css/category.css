@@ -1,0 +1,41 @@
+.industry_text_color, regions, .breadcrumb>li+li:before, #item_filter {
+    color: #2F2F16;
+}
+
+#asset_type, #availability_region_title {
+    color: #33424D;
+}
+
+#availability_region {
+    background-color: rgba(214, 223, 230, 1);
+}
+
+#add_to_requisition_btn, .requisition_detail_stock_button > button {
+    background-color: rgba(251, 243, 227, 1);
+    border-color: rgba(121, 73, 0, 1);
+}
+
+#add_to_requisition_btn {
+    color: #3B2614;
+}
+
+#requisition_detail_box {
+    background-color: rgba(249, 249, 249, 1);
+    border-color: rgba(51, 66, 77, 1);
+}
+
+.requisition_detail_stock_button > button, #confirm_button > button {
+    color: #4F3000;
+}
+
+#confirm_button > button {
+    border-color: rgba(121, 73, 0, 1);
+}
+
+.requisition_detail_overlay_img {
+    background-image: url(/outdoor/images/requisition_dark_overlay.svg);
+}
+
+.assets_category_overlay_img {
+    background-image: url(/outdoor/images/category_dark_overlay.svg);
+}

@@ -1,0 +1,12 @@
+mutation UpdateItemInStockByItemId($itemId: Long!, $newInStock: Int!) {
+    updateItemInStockByItemId(itemId: $itemId, newInStock: $newInStock) {
+        id
+        name
+        description
+        inStock
+        image
+        region
+        lastAccessedDate
+        categoryId
+    }
+}

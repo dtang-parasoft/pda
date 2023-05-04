@@ -1,0 +1,47 @@
+body {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.item_wrapper {
+    background-image: url("/aerospace/images/background.svg");
+}
+
+.item_navigation_bar>li+li:before {
+    color: #E7FFA1;
+}
+
+.item_navigation_bar .unClickable_color1 {
+    color: #e7ffa178;
+}
+
+#item_img img{
+    border: 1px solid #C2EAFB;
+}
+
+.requisition_button {
+    background-color: rgba(204, 136, 55, 1);
+    border-radius: 20px;
+    color: #fff;
+}
+
+#item_number_input {
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(182, 221, 238, 1);
+    border-radius: 20px;
+    color: #20200A;
+}
+
+#item_add_to_cart_button button {
+    background-color: rgba(204, 136, 55, 1);
+    border-radius: 20px;
+    color: #20200A;
+    font-size: 12px;
+}
+
+#item_description {
+    font-family: 'Ubuntu-Regular', 'Ubuntu', sans-serif;
+}
+
+.sp-3balls, .sp-3balls:before, .sp-3balls:after {
+    background-color: #C2EAFB;
+}

@@ -1,0 +1,46 @@
+.industry_text_color, #asset_type, #availability_region_title, regions, .breadcrumb>li+li:before, #item_filter {
+    color: #2F2F16;
+}
+
+#asset_type, #availability_region_title, #add_to_requisition_btn, .requisition_detail_stock_button > button,
+#confirm_button > button, .assets_category_title, .in_stock, #requisition_detail_title, .assets_category_title a span {
+    font-weight: 800;
+}
+
+#availability_region {
+    background-color: rgba(215, 215, 208, 1);
+}
+
+#requisition_detail_box {
+    background-color: rgba(249, 249, 227, 1);
+}
+
+#add_to_requisition_btn, .requisition_detail_stock_button > button, #confirm_button > button {
+    border-color: rgba(121, 73, 0, 1);
+    color: #4F3000;
+    border-radius: 1px;
+}
+
+#add_to_requisition_btn {
+    background-color: rgba(251, 232, 202, 1);
+}
+
+#requisition_detail_box {
+    border-color: rgba(71, 72, 30, 1);
+}
+
+.requisition_detail_stock_button > button {
+    background-color: rgba(251, 243, 227, 1);
+}
+
+.assets_category_overlay_img {
+    background-image: url(/defense/images/category_dark_overlay.svg);
+}
+
+.requisition_detail_overlay_img {
+    background-image: url(/defense/images/requisition_dark_overlay.svg);
+}
+
+.assets_category_description {
+    margin-bottom: 10px;
+}

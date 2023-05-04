@@ -1,0 +1,16 @@
+.assets_detail_dark_overlay_img {
+    background-image: url("/aerospace/images/category_dark_overlay.svg");
+}
+
+#assets_title {
+    color: #C2EAFB;
+}
+
+.advertisement_content_text {
+    line-height: normal;
+    font-weight: 400;
+}
+
+.asset_summary_title a:hover, .asset_summary_view_all a:hover {
+    color: #E7FFA1;
+}

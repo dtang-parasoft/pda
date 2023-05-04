@@ -1,0 +1,52 @@
+<div id="header-container">
+    <div class="header-title industry_font">
+        <a href="/"><span class="header_title_link retract_format" translate="PROJECT_NAME"></span></a>
+    </div>
+    <div class="header-menu">
+        <nav>
+            <ul>
+                <li id="setting-button" ng-if="isShowSettingButton">
+                    <a ng-href="{{(displayKafkaError === 'true' || displayRabbitMQError === 'true') ? '/demoAdmin#parasoftQueueConfiguration' : '/demoAdmin'}}"
+                       class="button-body full-fill-center" title="{{'HEADER_DEMO_ADMIN_TITLE'|translate}}">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <i class="fa fa-exclamation-circle exclamation-mark" ng-if="displayKafkaError === 'true' || displayRabbitMQError === 'true'">
+                        <span class="exclamation-mark-for-gear"></span>
+                    </i>
+                </li>
+                <li id="requisition-button" ng-if="isShowRequisitionButton">
+                    <a href="/orders" class="button-body full-fill-center"  title="{{'HEADER_ORDER_TITLE'|translate}}">
+                        <img class="button-img" ng-src="/{{industry}}/images/requisition.svg">
+                    </a>
+                    <div class="amount-container" ng-if="isPurchaser" ng-show="unreviewedNumByPRCH !== 0">
+                        <span class="amount-number" ng-bind="unreviewedNumByPRCH"></span>
+                    </div>
+                </li>
+                <li id="cart-button" ng-if="isShowRequisitionRequestButton">
+                    <div class="button-body full-fill-center" ng-click="switchBar()"
+                         data-toggle="collapse" data-target="#requisition_bar" title="{{'HEADER_CART_TITLE'|translate}}">
+                        <img class="button-img" ng-src="/{{industry}}/images/shopping_cart.svg">
+                    </div>
+                    <div class="amount-container" ng-show="totalAmount !== 0">
+                        <span class="amount-number" ng-bind="totalAmount"></span>
+                    </div>
+                </li>
+                <li id="username-button" ng-if="isShowAccount">
+                    <div class="dropdown full-fill-center">
+                        <div class="button-body industry_font dropdown-toggle full-fill-center" data-toggle="dropdown">
+                            <div class="role-title industry_font">
+                                <span class="account_text text-center">{{ username }}</span>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-item">
+                                <a class="logout" href="/v1/logout" translate="SIGN_OUT"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="page-background-image"></div>

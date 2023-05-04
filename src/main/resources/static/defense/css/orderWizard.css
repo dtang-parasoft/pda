@@ -1,0 +1,44 @@
+#order_title {
+    font-weight: 800;
+}
+
+.wizard_btn {
+    background-color: rgba(255, 153, 0, 1);
+    border: 1px solid;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(121, 73, 0, 1);
+    border-radius: 1px;
+    font-weight: 800;
+    font-style: normal;
+    color: #4F3000;
+}
+
+.wizard_btn:hover {
+    background-color: rgba(249, 181, 78, 1);
+}
+
+#get_location>button {
+    background-color: rgba(251, 232, 202, 1);
+}
+
+.wizard_item_description {
+    left: 125px;
+    width: 260px;
+    font-size: 12px;
+}
+
+/*Define the scroll-bar style*/
+#items::-webkit-scrollbar {
+    background: rgb(240 240 230);
+}
+
+/*Define the scroll-bar's slider style*/
+#items::-webkit-scrollbar-thumb {
+    background-color: #333;
+}
+
+.font_color1 {
+    color: #117563;
+}

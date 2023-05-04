@@ -1,0 +1,152 @@
+body{
+    color: #37434C;
+}
+
+#support_docs_box {
+    background-color: rgba(214, 223, 230, 1);
+}
+
+.support_link {
+    font-weight: 700;
+}
+
+#return_to_home_link:hover, .support_link:hover,  nav-tab-header:hover {
+    color: rgb(4,126,213);
+}
+
+.input-wrapper button, #test_connection_kafka_service_button, #test_connection_rabbitmq_service_button {
+    background-color: rgba(251, 243, 227, 1);
+    border-color: rgba(55, 67, 76, 1);
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.form-group>label {
+    color: #37434C;
+}
+
+.operation_button {
+    background-color: rgba(251, 243, 227, 1);
+    border-color: rgba(55, 67, 76, 1);
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #c1c1b9;
+}
+
+.nav-tabs>li {
+    background-color: #f9f9e3;
+    border: 1px solid #c1c1b9;
+}
+
+.nav-tabs>li>a {
+    width: 177px;
+    height: 36px;
+    padding-top: 7px;
+    color: #2F2F16;
+    border-radius: 0;
+}
+
+.nav-tabs>li.active>a {
+    background-color: #f9f9f4;
+    height: 34px;
+}
+
+.nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+    background-color: #f9f9e3;
+}
+
+.nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #f9f9f4;
+}
+
+button.close, button.close:hover {
+    color: #0366AE;
+    opacity: 1;
+}
+
+.btn-default:active, .btn-default:focus, .btn-default:active:focus,
+    .btn-default:active:hover {
+    background-color: rgba(246, 215, 154, 1);
+}
+
+.btn-default:hover {
+    background-color: rgba(238, 208, 162, 1);
+}
+
+.btn-default[disabled]:hover ,.btn-default[disabled]:focus {
+    background-color: rgba(251, 243, 227, 1);
+    border-color: #333;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th {
+    border: 1px solid #333;
+}
+
+.table-bordered>tbody>tr>th {
+    color: #33424D;
+}
+
+.table-bordered>tbody>tr>td {
+    background: #fff;
+}
+
+.table_title {
+    background: #f9f9e3;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #33424D;
+}
+
+.modal-content {
+    background: #F0F0F0;
+}
+
+.modal_cancel_btn:active, .modal_cancel_btn:focus, .modal_cancel_btn:active:focus {
+    background-color: #e6e6e6;
+}
+
+.modal_item_title {
+    color: #33424D;
+}
+
+.saving-modal-content {
+    background: #F0F0F0;
+    margin: auto;
+}
+
+.button-primary {
+    background-color: rgba(255, 153, 0, 1);
+    border-color: rgba(55, 67, 76, 1);
+    border-radius: 7px;
+}
+
+.button-primary:hover {
+    background-color: rgba(249, 181, 78, 1);
+}
+
+.button-secondary {
+    border-color: rgba(55, 67, 76, 1);
+}
+
+#page_title {
+    font-weight: 700;
+}
+
+#close_btn {
+    color: #F7F7D9;
+}
+
+.queue_configuration_details a:hover {
+    color: #0366AE;
+}
+
+.testing_connection_kafka_service, .testing_connection_rabbitmq_service {
+    margin-right: 136px;
+}
